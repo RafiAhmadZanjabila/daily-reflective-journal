@@ -1,0 +1,138 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/styles/weather-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/styles/mood.css' %}">
+{% endblock %}
+
+{% block title %}Check-In{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>How are you feeling this <span id="time_of_day"></span>?</h1>
+    <hr style="background-color: white;">
+    <br>
+
+    <div id="section-1">
+        <h3 class="text-center">Click on the colour that best describes how you feel right now</h3>
+        <div class="energy-grid">
+            <button class="energy-button" data-type="HEU" style="background-color: #ec4325;">High Energy<br>Unpleasant</button>
+            <button class="energy-button" data-type="HEP" style="background-color: #f9d50d;">High Energy<br>Pleasant</button>
+            <button class="energy-button" data-type="LEU" style="background-color: #016fdc;">Low Energy<br>Unpleasant</button>
+            <button class="energy-button" data-type="LEP" style="background-color: #06a074;">Low Energy<br>Pleasant</button>
+        </div>
+    </div>
+
+    <div id="section-2" style="display: none;">
+        <button id="back-to-section-1" class="btn btn-light">Back</button>
+        <br>
+        <h3 class="text-center">Select the emotion that best describes your feeling</h3>
+        <div id="emotions-list" class="emotions-list">
+        </div>
+        <br>
+    </div>
+
+    <div id="section-3" style="display: none;">
+        <button id="back-to-section-2" class="btn btn-light">Back</button>
+        <br><br>
+        <h4>What were you doing when you felt <i><span class="selected-emotion-name"></span></i> ?</h4>
+        <br>
+        <h4>Themes</h4>
+        <div class="options-group">
+            {% for theme in themes %}
+                <div class="option-item" data-id="{{ theme.id }}" data-type="theme">{{ theme.name }}</div>
+            {% endfor %}
+        </div>
+        <br>
+        <h4>Places</h4>
+        <div class="options-group">
+            {% for place in places %}
+                <div class="option-item" data-id="{{ place.id }}" data-type="place">{{ place.name }}</div>
+            {% endfor %}
+        </div>
+        <br>
+        <h4>Surroundings</h4>
+        <div class="options-group">
+            {% for surrounding in surroundings %}
+                <div class="option-item" data-id="{{ surrounding.id }}" data-type="surrounding">{{ surrounding.name }}</div>
+            {% endfor %}
+        </div>
+        <br>
+        <button id="next-to-section-4" class="btn btn-danger">Next</button>
+        <br>
+        <br>
+    </div>
+
+    <div id="section-4" style="display: none;">
+        <button id="back-to-section-3" class="btn btn-light">Back</button>
+        <br><br>
+        <h3>Describe what might be causing you to feel <i><span class="selected-emotion-name"></span></i>...</h3>
+        <textarea id="description" rows="5" class="form-control"></textarea>
+        <button id="next-to-section-5" class="btn btn-danger mt-3">Next</button>
+        <br>
+        <br>
+    </div>
+
+    <div id="section-5" style="display: none;">
+        <button id="back-to-section-4" class="btn btn-light">Back</button>
+        <br><br>
+        <h3>Time, Weather, Sleep &amp; Exercise</h3>
+        <div class="form-group">
+            <label>Date and Time:</label>
+            <input type="datetime-local" id="created_at" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Sleep Time:</label>
+            <div>
+                <input type="number" id="sleep_hours" min="0" max="23" placeholder="Hours" class="form-control" style="display:inline-block; width:48%;">
+                <input type="number" id="sleep_minutes" min="0" max="59" placeholder="Minutes" class="form-control" style="display:inline-block; width:48%;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Exercise Time:</label>
+            <div>
+                <input type="number" id="exercise_hours" min="0" max="23" placeholder="Hours" class="form-control" style="display:inline-block; width:48%;">
+                <input type="number" id="exercise_minutes" min="0" max="59" placeholder="Minutes" class="form-control" style="display:inline-block; width:48%;">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Steps:</label>
+            <input type="number" id="steps" min="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Weather:</label>
+            <input type="number" id="temperature" min="0" placeholder="Temperature (°C)" class="form-control">
+            <div class="options-group">
+                <div class="option-item weather-icon" data-condition="Sunny">
+                    <i class="wi wi-day-sunny"></i>
+                    <span>Sunny</span>
+                </div>
+                <div class="option-item weather-icon" data-condition="Partly Cloudy">
+                    <i class="wi wi-day-cloudy"></i>
+                    <span>Partly Cloudy</span>
+                </div>
+                <div class="option-item weather-icon" data-condition="Cloudy">
+                    <i class="wi wi-cloudy"></i>
+                    <span>Cloudy</span>
+                </div>
+                <div class="option-item weather-icon" data-condition="Rainy">
+                    <i class="wi wi-rain"></i>
+                    <span>Rainy</span>
+                </div>
+                <div class="option-item weather-icon" data-condition="Snow">
+                    <i class="wi wi-snow"></i>
+                    <span>Snow</span>
+                </div>
+            </div>
+        </div>
+        <button id="submit-mood" class="btn btn-danger mt-3">Save</button>
+        <br>
+        <br>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script defer src="{% static 'app/scripts/mood.js' %}"></script>
+{% endblock %}

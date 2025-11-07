@@ -1,0 +1,112 @@
+.diary-card {
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+
+.diary-card:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    transform: translateY(-12px);
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+}
+
+.diary-card .card-text {
+    color: #ced4da;
+}
+
+.diary-card .card-link {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.diary-card .card-link:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.diary-form {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+}
+
+.diary-form .form-control,
+.diary-form .form-control-file {
+    background-color: #2a2a2a;
+    border: none;
+    color: white;
+}
+
+.diary-form .form-control::placeholder {
+    color: #ced4da;
+}
+
+.diary-form .form-group label {
+    color: #e74c3c;
+}
+
+.diary-form .btn-primary {
+    background-color: #e74c3c;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.diary-form .btn-primary:hover {
+    background-color: #c0392b;
+}
+
+.diary-form .form-control {
+    border-radius: 8px;
+}
+
+.diary-form .form-control-file {
+    margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+    .diary-form {
+        padding: 20px;
+    }
+}
+
+.diary-detail {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.diary-detail img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.entry-content p {
+    white-space: pre-wrap;
+}
+
+.entry-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.entry-text {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .entry-layout {
+        flex-direction: column;
+    }
+}
+
+.alert {
+    margin-bottom: 15px;
+}

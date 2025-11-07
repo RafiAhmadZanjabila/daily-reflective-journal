@@ -1,0 +1,49 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block title %}Your Diary Entries{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/diary.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Your Diary</h1>
+    <a href="{% url 'write_diary' %}" class="btn btn-danger mb-4">New Entry</a>
+    {% if today_entries %}
+        <h2>Today</h2>
+        <div class="row">
+            {% for entry in today_entries %}
+                <div class="col-md-4 mb-4">
+                    <div class="card diary-card">
+                        <div class="card-body">
+                            <p class="card-text">{{ entry.body|linebreaksbr|truncatechars:100 }}</p>
+                            <a href="{% url 'diary_detail' entry.id %}" class="card-link">Read More</a>
+                            <p class="card-text"><small class="text-muted">{{ entry.created_at|time:"h:i A" }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if past_entries %}
+        <h2>Past Entries</h2>
+        <div class="row">
+            {% for entry in past_entries %}
+                <div class="col-md-4 mb-4">
+                    <div class="card diary-card">
+                        <div class="card-body">
+                            <p class="card-text">{{ entry.body|linebreaksbr|truncatechars:100 }}</p>
+                            <a href="{% url 'diary_detail' entry.id %}" class="card-link">Read More</a>
+                            <p class="card-text"><small class="text-muted">{{ entry.created_at|date:"F j, Y" }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You have no past diary entries.</p>
+    {% endif %}
+</div>
+{% endblock %}

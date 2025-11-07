@@ -1,0 +1,53 @@
+.mood-card {
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+
+.mood-card:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    transform: translateY(-12px);
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+}
+
+a.mood-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.mood-card .card-title,
+.mood-card .card-text {
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.mood-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.mood-card .card-title span {
+    font-size: 2rem;
+}
+
+.mood-card .card-text {
+    color: #ced4da;
+}
+
+.mood-card .card-text small {
+    color: #e74c3c;
+}
+
+.mood-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 992px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}

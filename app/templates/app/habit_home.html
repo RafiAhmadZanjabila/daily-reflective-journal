@@ -1,0 +1,63 @@
+{% extends 'app/layout.html' %}
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}Your Habit Entries{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/diary.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Your Habits</h1>
+    <a href="{% url 'add_habit_entry' %}" class="btn btn-danger mb-4">New Habit Entry</a>
+
+    {% if today_entries %}
+        <h2>{{ active|minutes_to_hours_minutes }} of activity today</h2>
+        <div class="row">
+            {% for entry in today_entries %}
+                <div class="col-md-4 mb-4">
+                    <div class="card diary-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ entry.habit.name }}</h5>
+                            <p class="card-text small">
+                                {{ entry.start_time|date:"h:i A" }} to {{ entry.end_time|date:"h:i A" }}
+                            </p>
+                            {% if entry.description %}
+                                <p class="card-text">{{ entry.description|linebreaksbr|truncatechars:40 }}</p>
+                            {% endif %}
+                            <a href="{% url 'habit_detail' entry.id %}" class="card-link">Read More</a>
+                            <p class="card-text"><small class="text-muted">{{ entry.created_at|time:"H:i" }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if past_entries %}
+        <h2>Past Entries</h2>
+        <div class="row">
+            {% for entry in past_entries %}
+                <div class="col-md-4 mb-4">
+                    <div class="card diary-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ entry.habit.name }}</h5>
+                            <p class="card-text small">
+                                {{ entry.duration_minutes|minutes_to_hours_minutes }}
+                            </p>
+                            {% if entry.description %}
+                                <p class="card-text">{{ entry.description|linebreaksbr|truncatechars:40 }}</p>
+                            {% endif %}
+                            <a href="{% url 'habit_detail' entry.id %}" class="card-link">Read More</a>
+                            <p class="card-text"><small class="text-muted">{{ entry.start_time|date:"F j, Y" }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You have no past habit entries.</p>
+    {% endif %}
+</div>
+{% endblock %}

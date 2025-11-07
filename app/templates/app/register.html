@@ -1,0 +1,40 @@
+{% extends 'app/home.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block body %}
+    <h1><u>Sign up</u></h1>
+    <br>
+    {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" required placeholder="John" name="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Doe" name="lastName">
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="johndoe123" required name="username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirmpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmpassword" required name="confirmpassword">
+        </div>
+        <button type="submit" class="buttons">Signup</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+{% endblock %}

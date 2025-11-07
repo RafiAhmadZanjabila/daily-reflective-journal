@@ -1,0 +1,30 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block title %}Write Diary Entry{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/diary.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Write a New Diary Entry</h1>
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class="diary-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <textarea class="form-control" name="body" rows="10" placeholder="Write your thoughts here...">{{ request.POST.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script defer src="{% static 'app/scripts/diary.js' %}"></script>
+{% endblock %}

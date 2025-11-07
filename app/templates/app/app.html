@@ -1,0 +1,58 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block title %}Daily Reflection Journal{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/app.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 id="greeting" class="text-left"></h1>
+    <hr style="background-color: white !important;">
+    <h3 class="text-left">What do you want to do?</h3>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <a href="{% url 'mood_checkin' %}" class="card-link">
+                    <div class="card-body">
+                        <i class="fas fa-heartbeat card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Track your Mood</h3>
+                        <p class="card-text">You have checked-in {{ mood_count }} time{{ mood_count | pluralize }} today.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <a href="{% url 'add_habit_entry' %}" class="card-link">
+                    <div class="card-body">
+                        <i class="fas fa-trophy card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Track a habit</h3>
+                        <p class="card-text">You have tracked {{ habit_count }} habit{{ habit_count | pluralize}} today.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <a href="{% url 'write_diary' %}" class="card-link">
+                    <div class="card-body">
+                        <i class="fas fa-leaf card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Make a diary entry</h3>
+                        <p class="card-text">You have made {{ diary_count }} diary entr{% if diary_count == 1 %}y{% else %}ies{% endif %} today.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const firstName = '{{ user.first_name|escapejs }}';
+</script>
+<script defer src="{% static 'app/scripts/app.js' %}"></script>
+{% endblock %}

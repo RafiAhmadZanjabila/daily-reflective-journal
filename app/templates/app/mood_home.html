@@ -1,0 +1,49 @@
+{% extends 'app/layout.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block title %}Your Mood Entries{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/mood_home.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Your Mood Entries</h1>
+    <a href="{% url 'mood_checkin' %}" class="btn btn-danger mb-4">Check-in</a>
+
+    {% if today_entry %}
+        <h2>Today's Entries</h2>
+        <div class="row">
+            {% for entry in today_entry %}
+                <div class="col-md-3 mb-4">
+                    <a href="{% url 'mood_detail' entry.id %}" class="card mood-card">
+                        <div class="card-body">
+                            <p class="card-text"><small class="text-muted">{{ entry.created_at|date:"h:i A" }}</small></p>
+                            <h2 class="card-title"><i>I'm feeling</i><br><span style="color: {{ entry.emotion_color }};">{{ entry.emotion.name }}</span></h2>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if past_entries %}
+        <h2>Past Entries</h2>
+        <div class="row">
+            {% for entry in past_entries %}
+                <div class="col-md-3 mb-4">
+                    <a href="{% url 'mood_detail' entry.id %}" class="card mood-card">
+                        <div class="card-body">
+                            <p class="card-text"><small class="text-muted">{{ entry.created_at|date:"F j, Y" }}<br>{{ entry.created_at|date:"h:i A" }}</small></p>
+                            <h2 class="card-title"><i>I'm feeling</i><br><span style="color: {{ entry.emotion_color }};">{{ entry.emotion.name }}</span></h2>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if not today_entry and not past_entries %}
+        <p>You have no mood entries.</p>
+    {% endif %}
+</div>
+{% endblock %}

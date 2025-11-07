@@ -1,0 +1,40 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block title %}Diary Entry{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'app/styles/diary.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script defer src="{% static 'app/scripts/diary.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 diary-detail">
+    <h3>{{ entry.created_at|date:"F j, Y, h:i A" }}</h3>
+    <div class="entry-layout">
+        <div class="entry-text mt-3" id="diary-body">
+            <p>{{ entry.body|linebreaksbr }}</p>
+        </div>
+    </div>
+    <div class="mt-3 edit-delete">
+        <button class="btn btn-primary" id="edit-button"><i class="fas fa-edit"></i> Edit</button>
+        <button class="btn btn-danger" id="delete-button"><i class="fas fa-trash-alt"></i> Delete</button>
+    </div>
+    <a href="{% url 'diary' %}" class="btn btn-light mt-3">Back to Diary</a>
+</div>
+
+<div class="container mt-3 diary-edit-form" id="diary-edit-form" style="display:none;">
+    <h3>Edit Diary Entry</h3>
+    <form class="diary-form" id="update-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <textarea class="form-control" name="body" rows="10" placeholder="Edit your thoughts here...">{{ entry.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-danger mt-3">Save</button>
+        <button type="button" class="btn btn-secondary mt-3" id="cancel-edit">Cancel</button>
+    </form>
+</div>
+{% endblock %}
